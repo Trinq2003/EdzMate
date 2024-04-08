@@ -62,6 +62,9 @@ def get_conversationchain(vectorstore):
 def handle_question(question):
     response=st.session_state.conversation({'question': question})
     st.session_state.chat_history=response["chat_history"]
+    print("*"*50)
+    print(st.session_state.chat_history)
+    print("*"*50)
     for i,msg in enumerate(st.session_state.chat_history):
         if i%2==0:
             st.write(user_template.replace("{{MSG}}",msg.content,),unsafe_allow_html=True)
@@ -69,12 +72,19 @@ def handle_question(question):
             st.write(bot_template.replace("{{MSG}}",msg.content),unsafe_allow_html=True)
 
 
+def conversation_function(question):
+    # Your implementation here
+    return {
+        "chat_history": "Your chat history or response"
+    }
+
+
 def main():
     load_dotenv()
     st.set_page_config(page_title="Chat with multiple PDFs",page_icon=":books:")
     st.write(css,unsafe_allow_html=True)
     if "conversation" not in st.session_state:
-        st.session_state.conversation=None
+        st.session_state.conversation=conversation_function
 
     if "chat_history" not in st.session_state:
         st.session_state.chat_history=None
