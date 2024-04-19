@@ -3,3 +3,7 @@ __pycache__
 .env
 /knowledge/*
 *.ipynb
+/aliases/*
+/collections/*
+*.json
+/tmp/*
