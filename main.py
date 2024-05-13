@@ -2,7 +2,7 @@ from transformers import Pipeline
 
 from modules.prompt import Prompt
 from modules.data_loader import KnowledgeBase
-from modules.vector_database import KnowledgeVectorDatabase
+from vector_database.vector_database import KnowledgeVectorDatabase
 from modules.embeddings import EmbeddingsModel
 from modules.reader import ReaderLLM
 # from modules.reranker import Reranker

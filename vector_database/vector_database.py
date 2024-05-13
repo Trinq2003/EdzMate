@@ -27,8 +27,6 @@ class KnowledgeVectorDatabase:
         top_k_relevant_docs = self.knowledge_vector_database.similarity_search(query, top_k)
         return top_k_relevant_docs
         
-        
-        
 if __name__ == "__main__":
     knowledge_base = KnowledgeBase("./knowledge/huggingface_doc.csv")
     embeddings = EmbeddingsModel(embedding_model_name="thenlper/gte-small")

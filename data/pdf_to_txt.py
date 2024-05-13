@@ -80,8 +80,8 @@ def pdf_to_md(name_of_file: str, tmp_path: str="./tmp") -> None:
         with open(md_file_path, "w+", encoding='utf-8') as f:
             f.write(full_text)
         
-        out_meta_filename = md_file_path.rsplit(".", 1)[0] + "_meta.json"
-        with open(out_meta_filename, "w+") as f:
+        meta_json_file_path = f"{tmp_md_dir}/meta_json/{name_of_file}_part_{i+1}.json"
+        with open(meta_json_file_path, "w+") as f:
             f.write(json.dumps(out_meta, indent=4))
 
         print("[INFO] Completed.\n" + "="*30)

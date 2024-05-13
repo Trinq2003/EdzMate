@@ -8,18 +8,19 @@ from transformers import AutoTokenizer
 
 from typing import Optional
 
+MARKDOWN_SEPARATORS = [
+    "\n#{1,6} ",
+    "```\n",
+    "\n\\*\\*\\*+\n",
+    "\n---+\n",
+    "\n___+\n",
+    "\n\n",
+    "\n",
+    " ",
+    "",
+]
+
 class KnowledgeBase:
-    MARKDOWN_SEPARATORS = [
-        "\n#{1,6} ",
-        "```\n",
-        "\n\\*\\*\\*+\n",
-        "\n---+\n",
-        "\n___+\n",
-        "\n\n",
-        "\n",
-        " ",
-        "",
-    ]
     def __init__(self, path_to_dataset: str, split: str = "train"):
         if os.path.exists(path_to_dataset):
             self.ds = pd.read_csv(path_to_dataset)
